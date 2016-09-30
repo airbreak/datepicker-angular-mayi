@@ -5,41 +5,164 @@ ul {
 ul li {
   list-style: none;
 }
+.date-picker-mayi {
+  height: auto;
+  width: 280px;
+  border: 1px solid #ccc;
+  background-color: #F7F7F7;
+  padding: 5px 10px;
+}
+.date-picker-mayi .mayi-item {
+  margin: 5px 0;
+}
+.date-picker-mayi .mayi-item .clear-both {
+  clear: both;
+}
+.date-picker-mayi .mayi-item.month-years-box {
+  text-align: center;
+}
+.date-picker-mayi .mayi-item.month-years-box .month-box {
+  display: inline-block;
+}
+.date-picker-mayi .mayi-item.month-years-box .month-years {
+  display: inline-block;
+}
+.date-picker-mayi .mayi-item.weekdays-box {
+  border-bottom: 1px solid #4eccc4;
+  padding-bottom: 5px;
+}
+.date-picker-mayi .mayi-item.weekdays-box ul li {
+  height: 20px;
+  width: 28px;
+  float: left;
+  margin-right: 14px;
+  text-align: center;
+  color: #4eccc4;
+}
+.date-picker-mayi .mayi-item.weekdays-box ul li:nth-of-type(7n) {
+  margin-right: 0;
+}
+.date-picker-mayi .mayi-item.days-box ul li {
+  font-family: arial, verdana, sans-serif;
+  font-size: 13px;
+  height: 36px;
+  width: 36px;
+  float: left;
+  margin-right: 4px;
+  text-align: center;
+  color: #4eccc4;
+  line-height: 36px;
+  cursor: pointer;
+  color: #474747;
+  margin-top: 5px;
+}
+.date-picker-mayi .mayi-item.days-box ul li:nth-of-type(7n) {
+  margin-right: 0;
+}
+.date-picker-mayi .mayi-item.days-box ul li.today {
+  color: #4eccc4;
+}
+.date-picker-mayi .mayi-item.days-box ul li.pass {
+  color: #C7C7C7;
+}
+.date-picker-mayi .mayi-item.days-box ul li.selected {
+  background-color: #4eccc4;
+  color: #fff;
+}
+.date-picker-mayi .mayi-item.days-box ul li.selected:hover {
+  background-color: #4eccc4;
+}
+.date-picker-mayi .mayi-item.days-box ul li:hover {
+  background-color: #ccc;
+}
+.date-picker-mayi .mayi-item.today-tomorrow-box {
+  display: -webkit-box;
+  height: 35px;
+  margin-top: 10px;
+}
+.date-picker-mayi .mayi-item.today-tomorrow-box .today-tomorrow-item {
+  width: 50%;
+  text-align: center;
+  height: 100%;
+  line-height: 35px;
+  color: #4eccc4;
+  cursor: pointer;
+}
 .select-mayi {
   height: 35px;
   width: 135px;
   overflow: hidden;
 }
-.select-mayi .selct-main {
+.select-mayi .selct-main-mayi {
   white-space: nowrap;
+  height: 30px;
+  width: 120px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
 }
-.select-mayi .selct-main li {
+.select-mayi .selct-main-mayi .arrow-base {
+  position: absolute;
+  top: 10px;
+  height: 12px;
+  width: 12px;
+  padding: 5px;
+  display: inline-block;
+  border: 2px solid #4eccc4;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  box-sizing: border-box;
+  cursor: pointer;
+  z-index: 555;
+}
+.select-mayi .selct-main-mayi .prev-mayi {
+  position: absolute;
+  top: 10px;
+  height: 12px;
+  width: 12px;
+  padding: 5px;
+  display: inline-block;
+  border: 2px solid #4eccc4;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  box-sizing: border-box;
+  cursor: pointer;
+  z-index: 555;
+  transform: rotate(135deg);
+  left: 10px;
+}
+.select-mayi .selct-main-mayi .next-mayi {
+  position: absolute;
+  top: 10px;
+  height: 12px;
+  width: 12px;
+  padding: 5px;
+  display: inline-block;
+  border: 2px solid #4eccc4;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  box-sizing: border-box;
+  cursor: pointer;
+  z-index: 555;
+  transform: rotate(320deg);
+  right: 10px;
+}
+.select-mayi .selct-main-mayi .main-container-mayi {
+  height: 100%;
+  width: 73px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.select-mayi .selct-main-mayi .main-container-mayi ul {
+  -webkit-transition: 500ms linear;
+  height: 100%;
+}
+.select-mayi .selct-main-mayi .main-container-mayi ul li {
   display: inline-block;
   height: 100%;
-  width: 100%;
+  width: 73px;
   text-align: center;
   line-height: 35px;
   color: #454545;
-  font-size: 12px;
-  padding: 2px 10px;
-}
-.select-mayi .selct-main::before {
-  content: '';
-  height: 20px;
-  width: 15px;
-  display: inline-block;
-  border: 4px solid #4eccc4;
-  border-top-color: transparent;
-  border-left-color: transparent;
-  transform: rotate(45deg);
-}
-.select-mayi .selct-main::after {
-  content: '';
-  height: 20px;
-  width: 15px;
-  display: inline-block;
-  border: 4px solid #4eccc4;
-  border-top-color: transparent;
-  border-left-color: transparent;
-  transform: rotate(-45deg);
+  font-size: 14px;
 }
