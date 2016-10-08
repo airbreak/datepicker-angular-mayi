@@ -10,13 +10,14 @@ ul{
 	}
 }
 .date-picker-mayi {
-  .size(280px,auto);
+  .size(240px,auto);
   border: 1px solid #ccc;
   background-color: #F7F7F7;
   padding: 5px 10px;
+  margin: 10px;
   .mayi-item{
 	margin: 5px 0;
-	.li-item(@color:#474747,@right:14px){
+	.li-item(@color:#474747,@right:6px){
 	  float: left;
 	  margin-right:@right;
 	  text-align: center;
@@ -55,10 +56,10 @@ ul{
 	  ul{
 		li{
 		  font-family: arial,verdana,sans-serif;
-		  @w:36px;
+		  @w:25px;
 		  font-size: 13px;
 		  .size(@w,@w);
-		  .li-item(@blue,4px);
+		  .li-item(@blue,10px);
 		  line-height: @w;
 		  cursor: pointer;
 		  color: #474747;
@@ -69,6 +70,9 @@ ul{
 		  }
 		  &.pass{
 			color: #C7C7C7;
+			&:hover{
+			  color: #fff;
+			}
 		  }
 
 		  &.selected{
@@ -88,7 +92,7 @@ ul{
 	&.today-tomorrow-box{
 	  display: -webkit-box;
 	  height: 35px;
-	  margin-top: 10px;
+	  margin-top: 6px;
 	  .today-tomorrow-item{
 		width: 50%;
 		text-align: center;
@@ -107,12 +111,11 @@ ul{
 //
 .select-mayi{
 	height:35px;
-	width:135px;
 	overflow:hidden;
 
 	.selct-main-mayi{
 		white-space: nowrap;
-	  	.size(120px,30px);
+	  	.size(100px,30px);
 	  	margin: 0 auto;
 	  	overflow: hidden;
 	  	position: relative;

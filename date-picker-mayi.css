@@ -7,10 +7,11 @@ ul li {
 }
 .date-picker-mayi {
   height: auto;
-  width: 280px;
+  width: 240px;
   border: 1px solid #ccc;
   background-color: #F7F7F7;
   padding: 5px 10px;
+  margin: 10px;
 }
 .date-picker-mayi .mayi-item {
   margin: 5px 0;
@@ -35,7 +36,7 @@ ul li {
   height: 20px;
   width: 28px;
   float: left;
-  margin-right: 14px;
+  margin-right: 6px;
   text-align: center;
   color: #4eccc4;
 }
@@ -45,13 +46,13 @@ ul li {
 .date-picker-mayi .mayi-item.days-box ul li {
   font-family: arial, verdana, sans-serif;
   font-size: 13px;
-  height: 36px;
-  width: 36px;
+  height: 25px;
+  width: 25px;
   float: left;
-  margin-right: 4px;
+  margin-right: 10px;
   text-align: center;
   color: #4eccc4;
-  line-height: 36px;
+  line-height: 25px;
   cursor: pointer;
   color: #474747;
   margin-top: 5px;
@@ -64,6 +65,9 @@ ul li {
 }
 .date-picker-mayi .mayi-item.days-box ul li.pass {
   color: #C7C7C7;
+}
+.date-picker-mayi .mayi-item.days-box ul li.pass:hover {
+  color: #fff;
 }
 .date-picker-mayi .mayi-item.days-box ul li.selected {
   background-color: #4eccc4;
@@ -78,7 +82,7 @@ ul li {
 .date-picker-mayi .mayi-item.today-tomorrow-box {
   display: -webkit-box;
   height: 35px;
-  margin-top: 10px;
+  margin-top: 6px;
 }
 .date-picker-mayi .mayi-item.today-tomorrow-box .today-tomorrow-item {
   width: 50%;
@@ -90,13 +94,12 @@ ul li {
 }
 .select-mayi {
   height: 35px;
-  width: 135px;
   overflow: hidden;
 }
 .select-mayi .selct-main-mayi {
   white-space: nowrap;
   height: 30px;
-  width: 120px;
+  width: 100px;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
