@@ -73,7 +73,8 @@ angular.module('date-picker-mayi',[])
 	})
 	.directive('datePicker',function(){
 		return {
-			restrict:'AE',
+			restrict:'EA',
+
 			template:'<div class="date-picker-mayi">'+
 						'<div class="mayi-item month-years-box">'+
 							'<div class="month-box">'+
@@ -95,17 +96,18 @@ angular.module('date-picker-mayi',[])
 								'pass: dayInfo.status==0, ' +
 								'today: dayInfo.status==2,' +
 								'selected: dayInfo.status==2, ' +
-								'pass: dayInfo.status==0}" ng-click="chooseDay(dayInfo.num)">{{dayInfo.num}}' +
+								'pass: dayInfo.status==0}" ng-click="chooseDay(dayInfo.year,dayInfo.month,dayInfo.num)">{{dayInfo.num}}' +
 							'</li>'+
 							'<div class="clear-both"></div>'+
 						'</ul>'+
 						'</div>'+
 						'<div class="mayi-item today-tomorrow-box">'+
-						'<div class="today-tomorrow-item">今天</div>'+
-						'<div class="today-tomorrow-item">明天</div>'+
+						'<div class="today-tomorrow-item" ng-click="chooseRecentlyDay(0)">今天</div>'+
+						'<div class="today-tomorrow-item"  ng-click="chooseRecentlyDay(1)">明天</div>'+
 						'</div>'+
 					'</div>',
-			replace:true,
+			replace:false,
+
 			link:function($scope,$element,$attrs){
 
 				/*得到某个月具体的天数*/
@@ -130,8 +132,6 @@ angular.module('date-picker-mayi',[])
 					day:''
 				};
 
-
-
 				/*
 				* 月变化，或者年变化时的回调方法
 				* paras:
@@ -148,8 +148,18 @@ angular.module('date-picker-mayi',[])
 					getDetailDays(currentDate);
 				};
 
-				$scope.chooseDay=function(num){
-					alert(num);
+				$scope.chooseDay=function(year,month,day){
+					alert(year+'-'+month+'-'+day);
+					$scope.clickFn({year:year,month:month,day:day});
+				};
+
+				$scope.chooseRecentlyDay=function(flag){
+					var myTime = new Date();
+					if(flag==1) {
+						myTime = myTime.valueOf() + 1*24*60*60*1000;
+						myTime = new Date(myTime);
+					}
+					this.chooseDay(myTime.getFullYear(),myTime.getMonth() + 1,myTime.getDate());
 				};
 			}
 		}
@@ -175,49 +185,46 @@ MayiDayInfo.prototype={
 
 		//如果1号 是 星期天， 则不用添加上个月份的日期信息
 		if(firstDayWeekDays==0){
-			for(var i= 1;i<maxDay +1;i++){
-				if(i==nowDay && isNowMonthAndYear){
-					status=2;
-				}else{
-					status=1;
-				}
-				allDays.push({
-					num:i,
-					status:status
-				});
-			}
+			firstDayWeekDays=7;
 		}
+
 		//添加上个月份的日期信息
-		else{
-			var lastMonthInfo=this.geAnotherMonthMaxDay(year,month,false);
-			var diff = lastMonthInfo.num-firstDayWeekDays;
-			for(var i=diff + 1;i<lastMonthInfo.num + 1;i++){
-				allDays.push({
-					num:i,
-					status:0,
-				});
+		var prevMonthInfo=this.geAnotherMonthMaxDay(year,month,false);
+		var diff = prevMonthInfo.num-firstDayWeekDays;
+		for(var i=diff + 1;i<prevMonthInfo.num + 1;i++){
+			allDays.push({
+				num:i,
+				status:0,
+				month:prevMonthInfo.month,
+				year:prevMonthInfo.year,
+			});
+		}
+		for(var i= 1;i<maxDay +1;i++){
+			if(i==nowDay && isNowMonthAndYear){
+				status=2;
 			}
-			for(var i= 1;i<maxDay +1;i++){
-				if(i==nowDay && isNowMonthAndYear){
-					status=2;
-				}
-				else{
-					status=1;
-				}
-				allDays.push({
-					num:i,
-					status:status
-				});
+			else{
+				status=1;
 			}
+			allDays.push({
+				num:i,
+				status:status,
+				month:month,
+				year:year,
+			});
 		}
 
 		// 下个月份的日期信息，42 代表 日期的一个面板共有42天，
 		// 除去当前月份和上个月份的，剩下的 用下个月份的前几天补充
+		//添加上个月份的日期信息
+		var nextMonthInfo=this.geAnotherMonthMaxDay(year,month,false);
 		var left=42 - allDays.length;
 		for(var i=1;i<left+1;i++){
 			allDays.push({
 				num:i,
-				status:0
+				status:0,
+				month:nextMonthInfo.month,
+				year:nextMonthInfo.year,
 			});
 		}
 		return allDays;
