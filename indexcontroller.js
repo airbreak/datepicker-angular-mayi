@@ -6,6 +6,7 @@
 
 angular.module('app',['date-picker-mayi'])
     .controller('indexcontroller',['$scope',function($scope){
+        
         var arr= [
             { name:'一月',val:0},
             { name:'二月',val:1},
