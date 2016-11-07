@@ -4,11 +4,11 @@
 	<meta charset="UTF-8">
 	<title>mayi-date-picker</title>
 	<link href="date-picker-mayi.css" type="text/css" rel="stylesheet">
+	<link href="index.css" type="text/css" rel="stylesheet">
 </head>
 <body ng-controller="indexcontroller">
-<input type="text" ng-focus="openMayiDatePicker()">
-
-<div date-picker date-format=""></div>
+<input type="text" ng-focus="openMayiDatePicker()" value="{{selectResultDate}}">
+<div class="my-date-picker" ng-show="myDatePicker" date-picker></div>
 
 </body>
 <script type="text/javascript" src="angular.min.js"></script>

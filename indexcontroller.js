@@ -40,6 +40,21 @@ angular.module('app',['date-picker-mayi'])
         $scope.arraydata1=arr1;
         $scope.indexdata1=getIndex1();
 
+        $scope.myDatePicker=false;
+        $scope.openMayiDatePicker=function(){
+            $scope.myDatePicker=true;
+        };
+        var now=new Date(),
+            nowInfo = {
+            day:now.getDate(),
+            month:now.getMonth()+1,
+            years:now.getFullYear()
+        };
+        $scope.selectResultDate=nowInfo.years+'-'+nowInfo.month+'-'+nowInfo.day;
+        $scope.showSelectedDate=function(dateStr){
+            $scope.selectResultDate=dateStr;
+        };
+
         function getIndex(){
            var current = getNowDate().month,
                len=arr.length;

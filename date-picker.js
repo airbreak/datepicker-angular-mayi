@@ -149,8 +149,9 @@ angular.module('date-picker-mayi',[])
 				};
 
 				$scope.chooseDay=function(year,month,day){
-					alert(year+'-'+month+'-'+day);
-					$scope.clickFn({year:year,month:month,day:day});
+					//alert(year+'-'+month+'-'+day);
+					//$scope.clickFn({year:year,month:month,day:day});
+					$scope.showSelectedDate(year+'-'+month+'-'+day);
 				};
 
 				$scope.chooseRecentlyDay=function(flag){
