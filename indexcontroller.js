@@ -40,9 +40,9 @@ angular.module('app',['date-picker-mayi'])
         $scope.arraydata1=arr1;
         $scope.indexdata1=getIndex1();
 
-        $scope.myDatePicker=false;
+        $scope.showDatePicker=false;
         $scope.openMayiDatePicker=function(){
-            $scope.myDatePicker=true;
+            $scope.showDatePicker=true;
         };
         var now=new Date(),
             nowInfo = {
